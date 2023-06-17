@@ -2,7 +2,7 @@ name: brew test-bot
 on:
   push:
     branches:
-      - trunk
+      - master
   pull_request:
 jobs:
   test-bot:
