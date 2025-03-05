@@ -10,14 +10,14 @@ class DovecotAT23 < Formula
     regex(/href=.*?dovecot[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 
-  bottle do
-    sha256 arm64_sequoia: "6e3f7b7e6aae562c02ddb68a1d7fc39da82f10bad221803a9c60fc60d027ebfc"
-    sha256 arm64_sonoma:  "97e1c6443d5546139a4584cc87c80b20d090eb8d228d97774356cdda65c5f278"
-    sha256 arm64_ventura: "2152eb14bd601eab60ac6fe646b59665dc73632ae8a8be07fcc6f4c3a8119da2"
-    sha256 sonoma:        "81efa1c3b5985fa1ca367731c0229125a798f88c94ff5c3de491f7e832287f9b"
-    sha256 ventura:       "cdd2b83bc98d4fe5081cfa0cf1018aa9c329189462786f324946ada25f44497d"
-    sha256 x86_64_linux:  "f4f03b65d28a0345273fcee911937a6894980e476c7d6af6bf19d4af77352ae5"
-  end
+#  bottle do
+#    sha256 arm64_sequoia: "6e3f7b7e6aae562c02ddb68a1d7fc39da82f10bad221803a9c60fc60d027ebfc"
+#    sha256 arm64_sonoma:  "97e1c6443d5546139a4584cc87c80b20d090eb8d228d97774356cdda65c5f278"
+#    sha256 arm64_ventura: "2152eb14bd601eab60ac6fe646b59665dc73632ae8a8be07fcc6f4c3a8119da2"
+#    sha256 sonoma:        "81efa1c3b5985fa1ca367731c0229125a798f88c94ff5c3de491f7e832287f9b"
+#    sha256 ventura:       "cdd2b83bc98d4fe5081cfa0cf1018aa9c329189462786f324946ada25f44497d"
+#    sha256 x86_64_linux:  "f4f03b65d28a0345273fcee911937a6894980e476c7d6af6bf19d4af77352ae5"
+#  end
 
   depends_on "openssl@3"
 
