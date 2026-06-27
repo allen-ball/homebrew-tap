@@ -52,6 +52,10 @@ class DovecotAT23 < Formula
   end
 
   def install
+    # Fix configure script /dev/null access issue
+    inreplace "configure", "test -n \"$DJDIR\" || exec 7<&0 </dev/null",
+                           "test -n \"$DJDIR\" || exec 7<&0 </dev/zero"
+    
     args = %W[
       --prefix=#{prefix}
       --disable-dependency-tracking
@@ -67,9 +71,18 @@ class DovecotAT23 < Formula
     ]
 
     system "./configure", *args
+    
+    # Fix libtool to not use /dev/null (which fails in Homebrew sandbox)
+    # Replace >/dev/null 2>&1 with empty to let output go to normal streams
+    inreplace "libtool", " >/dev/null 2>&1", ""
+    
     system "make", "install"
 
     resource("pigeonhole").stage do
+      # Fix configure script /dev/null access issue
+      inreplace "configure", "test -n \"$DJDIR\" || exec 7<&0 </dev/null",
+                             "test -n \"$DJDIR\" || exec 7<&0 </dev/zero"
+      
       args = %W[
         --disable-dependency-tracking
         --with-dovecot=#{lib}/dovecot
@@ -77,6 +90,10 @@ class DovecotAT23 < Formula
       ]
 
       system "./configure", *args
+      
+      # Fix libtool to not use /dev/null
+      inreplace "libtool", " >/dev/null 2>&1", ""
+      
       system "make"
       system "make", "install"
     end
