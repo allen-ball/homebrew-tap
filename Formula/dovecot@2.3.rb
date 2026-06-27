@@ -34,8 +34,8 @@ class DovecotAT23 < Formula
   end
 
   resource "pigeonhole" do
-    url "https://pigeonhole.dovecot.org/releases/2.3/dovecot-2.3-pigeonhole-0.5.21.tar.gz"
-    sha256 "1ca71d2659076712058a72030288f150b2b076b0306453471c5261498d3ded27"
+    url "https://pigeonhole.dovecot.org/releases/2.3/dovecot-2.3-pigeonhole-0.5.21.1.tar.gz"
+    sha256 "0377db284b620723de060431115fb2e7791e1df4321411af718201d6925c4692"
   end
 
   # dbox-storage.c:296:32: error: no member named 'st_atim' in 'struct stat'
